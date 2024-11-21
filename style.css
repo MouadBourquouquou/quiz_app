@@ -1,0 +1,39 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.continer{
+    text-align: center;
+    padding: 20px;
+    margin:10px auto ;
+    width: 90%;
+    max-width: 500px;
+    .answers{
+        div{
+        display: inline-block;
+        margin: 5px auto;
+        width: 100%;
+        max-width: 600px;
+        padding: 10px;
+        text-align: start;
+        border: 1px solid black;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        }   
+    } 
+}
+
+.next{
+    width: fit-content !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    visibility: hidden;
+}
