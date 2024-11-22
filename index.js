@@ -1,4 +1,4 @@
-import { data } from "./data.js";
+import { dataCpp } from "./Data/dataCpp.js";
 const question = document.getElementById("question");
 const tagscore = document.getElementById("score");
 const butnext = document.getElementById("next");
@@ -9,25 +9,35 @@ const ans4 = document.getElementById("ans4");
 
 let index = 0;
 let score = 0;
+let tabIndic = [];
+let indice = 0;
+
+function giveQuestion(){
+    do {
+        indice = Math.floor(Math.random()*50);
+    } while (tabIndic.includes(indice));
+    tabIndic.push(indice);
+    return indice;
+}
 
 function showQuesAns(){
-    question.innerHTML = `${index+1}/ `+data[index].question;
-    ans1.innerHTML = data[index].answers[0][0];
-    ans2.innerHTML = data[index].answers[1][0];
-    ans3.innerHTML = data[index].answers[2][0];
-    ans4.innerHTML = data[index].answers[3][0];
+    question.innerHTML = `${index+1}/ `+dataCpp[giveQuestion()].question;
+    ans1.innerHTML = dataCpp[indice].answers[0][0];
+    ans2.innerHTML = dataCpp[indice].answers[1][0];
+    ans3.innerHTML = dataCpp[indice].answers[2][0];
+    ans4.innerHTML = dataCpp[indice].answers[3][0];
 }
 showQuesAns();
 
 function validation(e,j){
-        if(data[index].answers[j][1] === true){
+        if(dataCpp[indice].answers[j][1] === true){
             e.style.backgroundColor="greenyellow";
             score++;
         }
         else {
             e.style.backgroundColor="rgb(255, 2, 31)";
-            for(let i=0;i<data[index].answers.length;i++){
-                if(data[index].answers[i][1]===true){
+            for(let i=0;i<4;i++){
+                if(dataCpp[indice].answers[i][1]===true){
                     let correct = document.getElementById("ans"+(i+1));
                     correct.style.backgroundColor = "greenyellow";
                 }
@@ -90,9 +100,9 @@ butnext.onclick = function(){
 
 function result(){
         let message = "Valider";
-        if(score<data.length/2) message = "Non Valider"
+        if(score<dataCpp.length/2) message = "Non Valider"
         document.querySelector(".continer").innerHTML =`<div>
-            <h2>Your final score is: ${score}/${data.length}</h2>
+            <h2>Your final score is: ${score}/10</h2>
             <h1 id=VNV>result : ${message}</h1>
             <button id="resbut">Restart Quiz</button>
         </div>`;
@@ -103,7 +113,7 @@ function result(){
         else document.getElementById("VNV").style.color="red";
 }
 function finish(){
-    if(index==data.length-1){
+    if(index==9){
         butnext.innerHTML = "Result";
         butnext.onclick = function(){
             result();
