@@ -1,7 +1,11 @@
 import { dataCpp } from "./Data/dataCpp.js";
 import { dataSql } from "./Data/dataSql.js";
 import { dataExcel } from "./Data/dataExcel.js";
+import { DataTele } from "./Data/dataTele.js";
+import { DataCS } from "./Data/dataCS.js";
+import { DataADD } from "./Data/dataADD.js";
 
+console.log(DataADD.length);
 let selectedTopic;
 let index = 0;
     let score = 0;
@@ -12,7 +16,10 @@ let index = 0;
 const topics = { 
     Cpp : dataCpp,
     Sql : dataSql,
-    Excel : dataExcel
+    Excel : dataExcel,
+    TF : DataTele,
+    CS : DataCS,
+    ADD : DataADD
 };
 document.querySelectorAll(".topic-button").forEach((button) => {
     button.onclick = function () {
