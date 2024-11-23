@@ -5,13 +5,12 @@ import { DataTele } from "./Data/dataTele.js";
 import { DataCS } from "./Data/dataCS.js";
 import { DataADD } from "./Data/dataADD.js";
 
-console.log(DataADD.length);
 let selectedTopic;
 let index = 0;
-    let score = 0;
-    let tabIndic = [];
-    let indice = 0;
-
+let score = 0;
+let tabIndic = [];
+let indice = 0;
+let title = 0;
 
 const topics = { 
     Cpp : dataCpp,
@@ -23,16 +22,31 @@ const topics = {
 };
 document.querySelectorAll(".topic-button").forEach((button) => {
     button.onclick = function () {
-        selectedTopic = topics[this.id]; 
+        selectedTopic = topics[this.id];
         startQuiz();
     };
 });
 
 function startQuiz(){
+    switch (selectedTopic) {
+        case dataCpp : 
+            title = "Test C++";
+            break;
+        case dataExcel : title = "Test Excel";
+            break;
+        case dataSql : title = "Test SQL";
+            break;
+        case DataADD : title = "Test Analyse de données";
+            break;
+        case DataCS : title = "Test Calcule Scientifique";
+            break;
+        case DataTele : title = "Téléinformatique Défi";
+            break;
+    } 
     document.querySelector(".container").innerHTML = `
     <div class="ques_continer">
-        <h2 id="title">Quiz App</h2>
-        <p>Score = <span id="score">0</span></p>
+        <h1 id="title">${title}</h1>
+        <h3 class="Score">Score = <span id="score">0</span></h3>
         <h3 id="question"></h3>
         <div class="answers" id="answers">
             <div class="ans1" id="ans1"></div>
@@ -138,17 +152,17 @@ function startQuiz(){
     };
 
     function result() {
-        let message = "Valider";
-        if (score < 5) message = "Non Valider";
+        let message = "😊 Réussi";
+        if (score < 5) message = "😔 Échoué";
         document.querySelector(".container").innerHTML = `<div>
-            <h2>Your final score is: ${score}/10</h2>
-            <h1 id=VNV>result : ${message}</h1>
-            <button id="resbut">Restart Quiz</button>
+            <h2>Votre score final est : ${score}/10</h2>
+            <h1 id=VNV>Résultat  : ${message}</h1>
+            <button id="resbut">Relancer le défi</button>
         </div>`;
         document.getElementById("resbut").onclick = function () {
             restartQuiz();
         };
-        if (message == "Valider") document.getElementById("VNV").style.color = "green";
+        if (message == "😊 Réussi") document.getElementById("VNV").style.color = "green";
         else document.getElementById("VNV").style.color = "red";
     }
     function finish() {
