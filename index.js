@@ -1,5 +1,6 @@
 import { dataCpp } from "./Data/dataCpp.js";
 import { dataSql } from "./Data/dataSql.js";
+import { dataExcel } from "./Data/dataExcel.js";
 
 let selectedTopic;
 let index = 0;
@@ -11,6 +12,7 @@ let index = 0;
 const topics = { 
     Cpp : dataCpp,
     Sql : dataSql,
+    Excel : dataExcel
 };
 document.querySelectorAll(".topic-button").forEach((button) => {
     button.onclick = function () {
@@ -131,7 +133,7 @@ function startQuiz(){
     function result() {
         let message = "Valider";
         if (score < 5) message = "Non Valider";
-        document.querySelector(".continer").innerHTML = `<div>
+        document.querySelector(".container").innerHTML = `<div>
             <h2>Your final score is: ${score}/10</h2>
             <h1 id=VNV>result : ${message}</h1>
             <button id="resbut">Restart Quiz</button>
