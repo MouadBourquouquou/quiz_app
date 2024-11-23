@@ -7,14 +7,14 @@ html, body {
     overflow-y: hidden;
 }
 
-.continer{
+.ques_continer{
     text-align: center;
     padding: 20px;
     margin:10px auto ;
     width: 90%;
     max-width: 500px;
     .answers{
-        div{
+        .ans1 , .ans2 , .ans3 , .ans4{
         display: inline-block;
         margin: 5px auto;
         width: 100%;
@@ -36,5 +36,15 @@ html, body {
     width: fit-content !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
+}
+#next{
     visibility: hidden;
+}
+.nexts{
+    display: flex ;
+    justify-content: space-between ;
+}
+a{
+    text-decoration: none;
+    color: black;
 }
