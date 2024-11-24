@@ -1,7 +1,7 @@
 /* this is the style of the quiz page  */
 *{
     box-sizing: border-box;
-    font-family: 'DM Sans';
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .ques_continer{
