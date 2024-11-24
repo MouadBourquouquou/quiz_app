@@ -1,3 +1,5 @@
+/* this file is for styling the home page  */
+
 *{
     font-family: 'DM Sans';
     box-sizing: border-box;
@@ -9,6 +11,7 @@
     margin:10px auto ;
     width: 95%;
 }
+
 .sous_container{
     display: grid;
     gap: 30px;
@@ -21,13 +24,16 @@
         -moz-border-radius: 20px;
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
+        
         h2{
             color: #3535ba;
             margin-bottom: 20px;
         }
+        
         p{
             text-align: left;
         }
+        
         .topic-button{
             padding: 8px;
             outline: none;
@@ -40,7 +46,7 @@
             -moz-border-radius: 10px;
             -ms-border-radius: 10px;
             -o-border-radius: 10px;
-}
+        }   
     }
 }
 

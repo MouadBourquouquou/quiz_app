@@ -1,3 +1,5 @@
+// import data from js files 
+
 import { dataCpp } from "./Data/dataCpp.js";
 import { dataSql } from "./Data/dataSql.js";
 import { dataExcel } from "./Data/dataExcel.js";
@@ -5,8 +7,10 @@ import { DataTele } from "./Data/dataTele.js";
 import { DataCS } from "./Data/dataCS.js";
 import { DataADD } from "./Data/dataADD.js";
 
+// index is a variabe contain the num of question 
+// indice is a variable contain the index in the data table 
 let selectedTopic;
-let index = 0;
+let index = 0; 
 let score = 0;
 let tabIndic = [];
 let indice = 0;
@@ -20,6 +24,8 @@ const topics = {
     CS : DataCS,
     ADD : DataADD
 };
+
+// fonction for choose topic 
 document.querySelectorAll(".topic-button").forEach((button) => {
     button.onclick = function () {
         selectedTopic = topics[this.id];
@@ -27,6 +33,7 @@ document.querySelectorAll(".topic-button").forEach((button) => {
     };
 });
 
+// start quiz 
 function startQuiz(){
     switch (selectedTopic) {
         case dataCpp : 
@@ -54,8 +61,8 @@ function startQuiz(){
             <div class="ans3" id="ans3"></div>
             <div class="ans4" id="ans4"></div>
             <div class="nexts">
-            <button id="homePage" class="next"><a href="index.html">Home</a></button>
-                <button id="next" class="next">next</button>
+            <button id="homePage" class="next"><a href="index.html">Accueil</a></button>
+                <button id="next" class="next">Avancer</button>
             </div>
         </div>
     </div>
@@ -181,3 +188,5 @@ function startQuiz(){
     showQuesAns();
     choose();
 };
+
+// end quiz 
